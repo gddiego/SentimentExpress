@@ -1,23 +1,60 @@
-Explicação da estrutura de pastas:
 
-data/: Pasta para armazenar dados brutos e processados.
-models/: Pasta para armazenar modelos treinados.
-notebooks/: Pasta opcional para notebooks Jupyter ou Colab.
-src/: Pasta para o código-fonte do projeto.
-data_preparation/: Módulo com funções relacionadas à preparação de dados.
-models/: Módulo com a definição e treinamento de modelos.
-utils/: Módulo com funções utilitárias.
-tests/: Pasta para testes automatizados.
-requirements.txt: Arquivo com as dependências do projeto.
-README.md: Documentação do projeto.
-main.py: Arquivo principal para execução do projeto.
+# Projeto para estudos
+
+Projeto visa aprendizagem de maquina com python.
 
 
-projeto para aprendizagem 
+## Roadmap
 
-init
+- Aprender a utilizar python para aprendizagem natural IA
+
+- Aprender a tratar e adicionar parametros generalista para criação de uma inteligencia com aprendizagem natural.
 
 
- simple sentiment analysis project step by step using Python and the NLTK library. In this project, we'll build a model to classify the sentiment of movie reviews as positive or negative.
+## Instalação
 
- 
+Instale my-project com npm
+
+```bash
+  python -m pip install nltk
+  python main.py
+```
+    
+## Main.py
+
+```python
+# main.py
+
+from src.models.sentiment_classifier import extract_features, train_classifier
+from src.data_preparation.data_loader import load_movie_reviews  # Importação correta
+
+def main():
+    documents = load_movie_reviews()  # Corrigido o uso da função
+    featuresets = extract_features(documents)
+    train_set, test_set = featuresets[100:], featuresets[:100]
+    classifier = train_classifier(train_set)
+    acc = accuracy(classifier, test_set)
+    print("Accuracy:", acc)
+
+if __name__ == "__main__":
+    main()
+
+```
+
+
+## Funcionalidades
+
+- Analise filmes indicando ser negativo ou positivo(bom ou ruim)
+- Preview em tempo real
+
+
+## Autores
+
+- [@gddiego](https://github.com/gddiego)
+
+
+## Referência
+
+ - [Aprender python](https://learnxinyminutes.com/docs/python/)
+ - [Documentação python](https://www.python.org/)
+
