@@ -1,11 +1,11 @@
 # src/models/sentiment_classifier.py
 
 import nltk
-from .data_preparation.data_loader import load_movie_reviews
-from nltk.tokenize import word_tokenize
+from src.data_preparation.data_loader import load_movie_reviews
 
 def extract_features(documents):
-    all_words = nltk.FreqDist(w.lower() for w in movie_reviews.words())
+    documents = load_movie_reviews()
+    all_words = nltk.FreqDist(w.lower() for w in documents.words())
     word_features = list(all_words)[:2000]
 
     def document_features(document):

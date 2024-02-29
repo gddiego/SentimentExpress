@@ -1,10 +1,10 @@
 # main.py
 
 from src.models.sentiment_classifier import extract_features, train_classifier
-from src.utils.evaluation_metrics import accuracy
+from src.data_preparation.data_loader import load_movie_reviews  # Importação correta
 
 def main():
-    documents = load_movie_reviews()
+    documents = load_movie_reviews()  # Corrigido o uso da função
     featuresets = extract_features(documents)
     train_set, test_set = featuresets[100:], featuresets[:100]
     classifier = train_classifier(train_set)
